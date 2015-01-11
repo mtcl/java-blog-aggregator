@@ -22,4 +22,9 @@
 		<url-pattern>*.xml</url-pattern>
 	</servlet-mapping>
 
+	<!-- Bootstrap the root application context as usual using ContextLoaderListener -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 </web-app>
