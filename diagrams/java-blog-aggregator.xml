@@ -1,22 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<entities>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
 		<entity-name>com.mtcl.entity.Blog</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>186</entity-height>
 		<entity-X-Coordinate>500</entity-X-Coordinate>
 		<entity-Y-Coordinate>50</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.mtcl.entity.Item</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>206</entity-height>
-		<entity-X-Coordinate>680</entity-X-Coordinate>
-		<entity-Y-Coordinate>320</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -39,6 +27,17 @@
 		<entity-height>206</entity-height>
 		<entity-X-Coordinate>263</entity-X-Coordinate>
 		<entity-Y-Coordinate>40</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.mtcl.entity.Item</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>206</entity-height>
+		<entity-X-Coordinate>680</entity-X-Coordinate>
+		<entity-Y-Coordinate>320</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

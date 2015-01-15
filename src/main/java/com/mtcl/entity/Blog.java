@@ -24,7 +24,7 @@ public class Blog {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "blog")
 	private List<Item> items;
 
 	public Integer getId() {
