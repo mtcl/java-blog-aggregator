@@ -42,4 +42,6 @@
 	</bean>
 	
 	<jpa:repositories base-package="com.mtcl.repository" />
+	
+	<import resource="security.xml"/>
 </beans>
