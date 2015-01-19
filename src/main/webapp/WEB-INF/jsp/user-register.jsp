@@ -26,7 +26,7 @@
 
 	<div class="form-group">
 		<div class="col-sm-2">
-			<input type="submit" value="Save" class="btn btn-default" />
+			<input type="submit" value="Save" class="btn btn-lg btn-primary btn-block" />
 		</div>
 	</div>
 </form:form>
