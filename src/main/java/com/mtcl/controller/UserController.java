@@ -17,11 +17,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@ModelAttribute("user")
-	public User construct() {
-		return new User();
-	}
-
 	@RequestMapping("/users")
 	public String users(Model model) {
 		model.addAttribute("users", userService.findAll());
@@ -34,9 +29,16 @@ public class UserController {
 		return "user-detail";
 	}
 
-	@RequestMapping("/register")
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegister() {
 		return "user-register";
+	}
+
+	// pass a Model attribute names user which will be stored in the command
+	// object.
+	@ModelAttribute("user")
+	public User construct() {
+		return new User();
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
