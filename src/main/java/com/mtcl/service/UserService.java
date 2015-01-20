@@ -57,7 +57,7 @@ public class UserService {
 
 	public void save(User user) {
 		userRepository.save(user);
-
+		
 	}
 
 }
