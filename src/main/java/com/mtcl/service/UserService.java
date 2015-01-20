@@ -1,5 +1,6 @@
 package com.mtcl.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -7,13 +8,16 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mtcl.entity.Blog;
 import com.mtcl.entity.Item;
+import com.mtcl.entity.Role;
 import com.mtcl.entity.User;
 import com.mtcl.repository.BlogRepository;
 import com.mtcl.repository.ItemRepository;
+import com.mtcl.repository.RoleRepository;
 import com.mtcl.repository.UserRepository;
 
 @Service
@@ -28,6 +32,9 @@ public class UserService {
 
 	@Autowired
 	private ItemRepository itemRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;
 
 	public List<User> findAll() {
 
@@ -56,8 +63,19 @@ public class UserService {
 	}
 
 	public void save(User user) {
-		userRepository.save(user);
+		//encoding the password
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(user.getPassword()));
 		
+		//Set role
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(roleRepository.findOneByName("ROLE_USER"));
+		user.setRoles(roles);
+		
+		//Enable User
+		user.setEnabled(true);
+		
+		userRepository.save(user);
 	}
 
 }
