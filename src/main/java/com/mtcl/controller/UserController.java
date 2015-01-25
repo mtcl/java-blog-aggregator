@@ -1,5 +1,7 @@
 package com.mtcl.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,4 +48,14 @@ public class UserController {
 		userService.save(user);
 		return "redirect:/register.html?success=true";
 	}
+	
+	@RequestMapping(value = "/account", method = RequestMethod.GET)
+	public String account(Model model, Principal principal){
+		
+		String name = principal.getName();
+		//System.out.println("Logged in user name: " + name);
+		model.addAttribute("user", userService.findOneWithBlogs(name));
+		return "user-detail";
+	}
+	
 }

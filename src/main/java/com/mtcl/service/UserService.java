@@ -32,7 +32,7 @@ public class UserService {
 
 	@Autowired
 	private ItemRepository itemRepository;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
 
@@ -63,19 +63,27 @@ public class UserService {
 	}
 
 	public void save(User user) {
-		//encoding the password
+		// encoding the password
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		user.setPassword(encoder.encode(user.getPassword()));
-		
-		//Set role
+
+		// Set role
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleRepository.findOneByName("ROLE_USER"));
 		user.setRoles(roles);
-		
-		//Enable User
+
+		// Enable User
 		user.setEnabled(true);
-		
+
 		userRepository.save(user);
+	}
+
+	public User findOneWithBlogs(String name) {
+
+		User user = userRepository.findByName(name);
+		//System.out.println("User ID : " + user.getId());
+		user = findOneWithBlogs(user.getId());
+		return user;
 	}
 
 }
